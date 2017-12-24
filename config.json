@@ -1,0 +1,28 @@
+{
+    "core": {
+        "config": {"tucube.setUid": 1001},
+        "next": ["tucube_dummy"]
+    }, 
+    "tucube_dummy": {
+        "path": "/usr/local/lib/tucube/tucube_dummy.so",
+        "config": {"tucube_dummy.message": "Hello I am a dummy module!"},
+        "next": ["tucube_dummy2", "tucube_dummy3"]
+    },
+    "tucube_dummy2": {
+        "path": "/usr/local/lib/tucube/tucube_dummy.so",
+        "config": {"tucube_dummy.message": "Hello I am a dummy module2!"},
+        "next": []
+    },
+    "tucube_dummy3": {
+        "path": "/usr/local/lib/tucube/tucube_dummy.so",
+        "config": {"tucube_dummy.message": "Hello I am a dummy module3!"},
+        "next": ["tucube_dummy4"]
+    },
+    "tucube_dummy4": {
+        "path": "/usr/local/lib/tucube/tucube_dummy.so",
+        "config": {"tucube_dummy.message": "Hello I am a dummy module4!"},
+        "next": []
+    }
+
+}
+
