@@ -1,4 +1,4 @@
-add_library(tucube_dummy MODULE tucube_dummy.c)
-set_target_properties(tucube_dummy PROPERTIES PREFIX "")
-set_target_properties(tucube_dummy PROPERTIES PUBLIC_HEADER "tucube_IDummy.h")
-install(TARGETS tucube_dummy DESTINATION lib/tucube)
+add_library(tucube_mt_dummy MODULE tucube_mt_dummy.c)
+set_target_properties(tucube_mt_dummy PROPERTIES PREFIX "")
+install(TARGETS tucube_mt_dummy
+        LIBRARY DESTINATION lib/tucube)
