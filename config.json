@@ -1,6 +1,11 @@
 {
     "core": {
         "config": {"tucube.setUid": 1001},
+        "next": ["tucube_tcp"]
+    },
+    "tucube_tcp": {
+        "path": "/usr/local/lib/tucube/tucube_tcp.so",
+        "config": {"tucube_tcp.port": 8000},
         "next": ["tucube_mt"]
     }, 
     "tucube_mt": {
