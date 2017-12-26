@@ -1,14 +1,15 @@
 #include <dlfcn.h>
 #include <err.h>
 #include <fcntl.h>
+#include <libgenc/genc_Tree.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <tucube/tucube_Module.h>
 #include <tucube/tucube_IModule.h>
-#include <libgenc/genc_Tree.h>
-#include <tucube/tucube_IMt.h>
+#include <tucube/tucube_ITLocal.h>
+#include <tucube/tucube_ITlService.h>
 
 struct tucube_mt_dummy_LocalModule {
     const char* message;
@@ -16,7 +17,8 @@ struct tucube_mt_dummy_LocalModule {
 };
 
 TUCUBE_IMODULE_FUNCTIONS;
-TUCUBE_IMT_FUNCTIONS;
+TUCUBE_ITLOCAL_FUNCTIONS;
+TUCUBE_ITLSERVICE_FUNCTIONS;
 
 int tucube_IModule_init(struct tucube_Module* module, struct tucube_Config* config, void* args[]) {
 warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
@@ -27,12 +29,12 @@ warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
 
-int tucube_IMt_init(struct tucube_Module* module, struct tucube_Config* config, void* args[]) {
+int tucube_ITLocal_init(struct tucube_Module* module, struct tucube_Config* config, void* args[]) {
 warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
 
-int tucube_IMt_service(struct tucube_Module* module, void* args[]) {
+int tucube_ITlService_call(struct tucube_Module* module, void* args[]) {
 warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     struct tucube_mt_dummy_LocalModule* localModule = module->localModule.pointer;
     while(true) {
@@ -42,7 +44,7 @@ warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
 
-int tucube_IMt_destroy(struct tucube_Module* module) {
+int tucube_ITLocal_destroy(struct tucube_Module* module) {
 warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
