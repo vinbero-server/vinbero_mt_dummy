@@ -5,7 +5,7 @@
     },
     "tucube_tcp": {
         "path": "/usr/local/lib/tucube/tucube_tcp.so",
-        "config": {"tucube_tcp.port": 8000},
+        "config": {"tucube_tcp.port": 8000, "tucube_tcp.reuseAddress": true},
         "next": ["tucube_mt"]
     }, 
     "tucube_mt": {
