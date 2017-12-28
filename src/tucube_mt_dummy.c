@@ -29,7 +29,17 @@ warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
 
+int tucube_IModule_rInit(struct tucube_Module* module, struct tucube_Config* config, void* args[]) {
+warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
+    return 0;
+}
+
 int tucube_ITLocal_init(struct tucube_Module* module, struct tucube_Config* config, void* args[]) {
+warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
+    return 0;
+}
+
+int tucube_ITLocal_rInit(struct tucube_Module* module, struct tucube_Config* config, void* args[]) {
 warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
@@ -49,6 +59,11 @@ warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
 
+int tucube_ITLocal_rDestroy(struct tucube_Module* module) {
+warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
+    return 0;
+}
+
 int tucube_IModule_destroy(struct tucube_Module* module) {
 struct tucube_mt_dummy_LocalModule* localModule = module->localModule.pointer;
     warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
@@ -62,3 +77,9 @@ struct tucube_mt_dummy_LocalModule* localModule = module->localModule.pointer;
 //    dlclose(module->dl_handle);
     return 0;
 }
+
+int tucube_IModule_rDestroy(struct tucube_Module* module) {
+warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
+    return 0;
+}
+
