@@ -65,6 +65,12 @@ warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
 }
 
 int tucube_IModule_destroy(struct tucube_Module* module) {
+warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
+    return 0;
+}
+
+int tucube_IModule_rDestroy(struct tucube_Module* module) {
+warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
 struct tucube_mt_dummy_LocalModule* localModule = module->localModule.pointer;
     warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     GENC_TREE_NODE_FOR_EACH_CHILD(module, index) {
@@ -75,11 +81,7 @@ struct tucube_mt_dummy_LocalModule* localModule = module->localModule.pointer;
     if(module->tlModuleKey != NULL)
         free(module->tlModuleKey);
 //    dlclose(module->dl_handle);
-    return 0;
-}
 
-int tucube_IModule_rDestroy(struct tucube_Module* module) {
-warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
     return 0;
 }
 
