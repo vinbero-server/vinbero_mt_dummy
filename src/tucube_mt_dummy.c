@@ -22,6 +22,8 @@ TUCUBE_ITLSERVICE_FUNCTIONS;
 
 int tucube_IModule_init(struct tucube_Module* module, struct tucube_Config* config, void* args[]) {
 warnx("%s: %u: %s", __FILE__, __LINE__, __FUNCTION__);
+    module->name = "tucube_mt_dummy";
+    module->version = "0.0.1";
     module->localModule.pointer = malloc(1 * sizeof(struct tucube_mt_dummy_LocalModule));
     struct tucube_mt_dummy_LocalModule* localModule = module->localModule.pointer;
     TUCUBE_CONFIG_GET(config, module->id, "tucube_mt_dummy.message", string, &(localModule->message), "I HAVE NOTHING TO SAY");
