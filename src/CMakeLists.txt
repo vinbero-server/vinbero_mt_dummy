@@ -1,4 +1,5 @@
-add_library(tucube_mt_dummy MODULE tucube_mt_dummy.c)
-set_target_properties(tucube_mt_dummy PROPERTIES PREFIX "")
-install(TARGETS tucube_mt_dummy
-        LIBRARY DESTINATION lib/tucube)
+add_library(vinbero_mt_dummy MODULE vinbero_mt_dummy.c)
+set_target_properties(vinbero_mt_dummy PROPERTIES PREFIX "")
+target_link_libraries(vinbero_mt_dummy vinbero_common)
+install(TARGETS vinbero_mt_dummy
+        LIBRARY DESTINATION lib/vinbero)
