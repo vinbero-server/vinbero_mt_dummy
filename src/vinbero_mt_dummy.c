@@ -9,20 +9,20 @@
 #include <vinbero_common/vinbero_common_Config.h>
 #include <vinbero_common/vinbero_common_Log.h>
 #include <vinbero_common/vinbero_common_Module.h>
-#include <vinbero/vinbero_IMODULE.h>
-#include <vinbero/vinbero_ITLOCAL.h>
-#include <vinbero/vinbero_ITLSERVICE.h>
+#include <vinbero/vinbero_Interface_MODULE.h>
+#include <vinbero/vinbero_Interface_TLOCAL.h>
+#include <vinbero/vinbero_Interface_TLSERVICE.h>
 
 struct vinbero_mt_dummy_LocalModule {
     const char* message;
     int interval;
 };
 
-VINBERO_IMODULE_FUNCTIONS;
-VINBERO_ITLOCAL_FUNCTIONS;
-VINBERO_ITLSERVICE_FUNCTIONS;
+VINBERO_INTERFACE_MODULE_FUNCTIONS;
+VINBERO_INTERFACE_TLOCAL_FUNCTIONS;
+VINBERO_INTERFACE_TLSERVICE_FUNCTIONS;
 
-int vinbero_IMODULE_init(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
+int vinbero_Interface_MODULE_init(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
     VINBERO_COMMON_LOG_TRACE2();
     module->name = "vinbero_mt_dummy";
     module->version = "0.0.1";
@@ -34,22 +34,22 @@ int vinbero_IMODULE_init(struct vinbero_common_Module* module, struct vinbero_co
     return 0;
 }
 
-int vinbero_IMODULE_rInit(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
+int vinbero_Interface_MODULE_rInit(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
     VINBERO_COMMON_LOG_TRACE2();
     return 0;
 }
 
-int vinbero_ITLOCAL_init(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
+int vinbero_Interface_TLOCAL_init(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
     VINBERO_COMMON_LOG_TRACE2();
     return 0;
 }
 
-int vinbero_ITLOCAL_rInit(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
+int vinbero_Interface_TLOCAL_rInit(struct vinbero_common_Module* module, struct vinbero_common_Config* config, void* args[]) {
     VINBERO_COMMON_LOG_TRACE2();
     return 0;
 }
 
-int vinbero_ITLSERVICE_call(struct vinbero_common_Module* module, void* args[]) {
+int vinbero_Interface_TLSERVICE_call(struct vinbero_common_Module* module, void* args[]) {
     VINBERO_COMMON_LOG_TRACE2();
     struct vinbero_mt_dummy_LocalModule* localModule = module->localModule.pointer;
     while(true) {
@@ -59,22 +59,22 @@ int vinbero_ITLSERVICE_call(struct vinbero_common_Module* module, void* args[]) 
     return 0;
 }
 
-int vinbero_ITLOCAL_destroy(struct vinbero_common_Module* module) {
+int vinbero_Interface_TLOCAL_destroy(struct vinbero_common_Module* module) {
     VINBERO_COMMON_LOG_TRACE2();
     return 0;
 }
 
-int vinbero_ITLOCAL_rDestroy(struct vinbero_common_Module* module) {
+int vinbero_Interface_TLOCAL_rDestroy(struct vinbero_common_Module* module) {
     VINBERO_COMMON_LOG_TRACE2();
     return 0;
 }
 
-int vinbero_IMODULE_destroy(struct vinbero_common_Module* module) {
+int vinbero_Interface_MODULE_destroy(struct vinbero_common_Module* module) {
     VINBERO_COMMON_LOG_TRACE2();
     return 0;
 }
 
-int vinbero_IMODULE_rDestroy(struct vinbero_common_Module* module) {
+int vinbero_Interface_MODULE_rDestroy(struct vinbero_common_Module* module) {
     VINBERO_COMMON_LOG_TRACE2();
     struct vinbero_mt_dummy_LocalModule* localModule = module->localModule.pointer;
     free(module->localModule.pointer);
